@@ -1,7 +1,7 @@
-#React基础知识详解
+# React基础知识详解
 React 是一个 JavaScript 库。
-##1、构建React环境
-####使用 create-react-app 快速构建 React 开发环境
+## 1、构建React环境
+#### 使用 create-react-app 快速构建 React 开发环境
 运行create-react-app命令前，你需要安装node。
      
 windows系统下：
@@ -21,7 +21,7 @@ create-react-app my-app
 cd my-app
 npm start
 ```
-##2、JSX 语法
+## 2、JSX 语法
 JSX的语法：HTML 语言直接写在 JavaScript 语言之中，不加任何引号，它允许 HTML 与 JavaScript 的混写。
 
     ReactDOM.render(
@@ -29,7 +29,7 @@ JSX的语法：HTML 语言直接写在 JavaScript 语言之中，不加任何引
         document.getElementById('example')
     );
 
-####点表示法
+#### 点表示法
 可以使用 JSX 中的点表示法来引用 React 组件。从而可以方便地从一个模块中导出许多 React 组件。
 
     import React from 'react';    
@@ -42,7 +42,7 @@ JSX的语法：HTML 语言直接写在 JavaScript 语言之中，不加任何引
       return <MyComponents.DatePicker color="blue" />;
     }
 
-####首字母大写
+#### 首字母大写
 >当元素类型以小写字母开头时，它表示一个内置的组件，如div或span
 
 ``
@@ -57,7 +57,7 @@ class MyComponent extends React.Component{...};
 ReactDOM.render(MyComponent, document.getElementById('example'));
 ``
 
-####属性
+#### 属性
 在 JSX 中有几种不同的方式来指定属性。
 >使用 JavaScript 表达式
 
@@ -90,7 +90,7 @@ ReactDOM.render(MyComponent, document.getElementById('example'));
       return <Greeting {...props} />;
     }
 
-####子代
+#### 子代
 
 props.children：在包含开始和结束标签的 JSX 表达式中，标记之间的内容作为特殊的参数传递。
 
@@ -161,12 +161,12 @@ JSX 允许在模板中插入数组，数组会自动展开所有成员
 
 注意:由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。
 
-##3、组件
+## 3、组件
 >React 允许将代码封装成组件，然后像插入普通 HTML 标签一样，在网页中插入这个组件。
 
 >组件很像一个函数，有一个可以接收任意数据类型的参数（“props”），并返回一个需要在页面上展示的React元素。
 
-####组件的创建
+#### 组件的创建
 >使用JavaScript函数
 
     function Welcome(props) {
@@ -199,7 +199,7 @@ JSX 允许在模板中插入数组，数组会自动展开所有成员
       }
     }
     
-####组建的渲染
+#### 组建的渲染
 >HTML 标签
 
 ``
@@ -217,7 +217,7 @@ const element = <div />;
       document.getElementById('root')
     );
     
-####组件嵌套组件
+#### 组件嵌套组件
 
     //创建一个Welcome组件
     function Welcome(props) {
@@ -238,11 +238,11 @@ const element = <div />;
       document.getElementById('root')
     );
     
-####组件的拆分
+#### 组件的拆分
 
 尽可能减少代码耦合，提高代码的复用性，将组件切分为更小的组件
 
-##state
+## state
 * React 将组件看成是一个状态机，通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。
 * React里，组件内部的状态，可以使用 state。因此只需更新组件的 state，然后根据新的 state 重新渲染用户界面。
 
@@ -279,7 +279,7 @@ const element = <div />;
           document.getElementById('root')
         );
  
-####setState()
+#### setState()
  
 this.props 和 this.state 可能是异步更新的，不应该依靠它们的值来计算下一个状态。例如：
 
@@ -299,11 +299,11 @@ this.setState((prevState, props) => ({
 
 代码分析：先前的状态作为第一个参数，将此次更新被应用时的props做为第二个参数
 
-##props
+## props
 * this.props是获取父组件传递给子组件的属性值。
 * this.props 对象的属性与组件的属性一一对应。
 
-##定义props默认值
+## 定义props默认值
 
 defaultProps 用来确保 this.props.name 在父组件没有特别指定的情况下，有一个初始值
     
@@ -339,7 +339,7 @@ defaultProps 用来确保 this.props.name 在父组件没有特别指定的情�
       document.getElementById('example')
     );
     
-##PropTypes
+## PropTypes
 组件的属性可以接受任意值，为了约定统一的接口规范，通过指定 propTypes 可以校验props属性值的类型，当别人使用组件时，提示写入的参数是否符合要求。
 
     import PropTypes from 'prop-types';    
@@ -365,11 +365,11 @@ defaultProps 用来确保 this.props.name 在父组件没有特别指定的情�
     // 限制你的属性值是某个特定值之一
     optionalEnum: PropTypes.oneOf(['News', 'Photos']),
     
-##数据自顶向下流动
+## 数据自顶向下流动
 
 组件可以选择将其状态作为属性传递给其子组件，子组件通过其props属性中接收到父组件的值。这通常被称为自顶向下或单向数据流，任何状态始终由某些特定组件所有，并且从该状态导出的任何数据或UI只能影响树中下方的组件。
     
-##获取真实的DOM节点
+## 获取真实的DOM节点
 >Refs 提供了一种访问在 render 方法中创建的 DOM 节点或 React 元素的方式。
  
 在 React 数据流中, 属性（props）是父组件与子组件数据传递的唯一方式。要修改子组件的状态，需要使用新的props重新渲染它。但是，有时需要在典型数据流外强制修改子组件。要修改的子组件可以是React组件实例，也可以是 DOM 元素。对于这两种情况，React 提供了Refs方式。
@@ -480,7 +480,7 @@ defaultProps 用来确保 this.props.name 在父组件没有特别指定的情�
    
 代码分析：父组件的ref属性通过props传递给子组件，从而间接访问子组件的节点 
   
-##组件的生命周期
+## 组件的生命周期
 每当组件第一次加载到DOM中的时候，这在React中被称为挂载。
 
 每当组件生成的这个DOM被移除的时候，这在React中被称为卸载。
@@ -507,7 +507,7 @@ componentWillReceiveProps(object nextProps)
 
 shouldComponentUpdate(object nextProps, object nextState)   
     
-##事件处理
+## 事件处理
 
 * React事件绑定属性的命名采用驼峰式写法，而不是小写。
 * 如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)  

@@ -1,5 +1,5 @@
-#React深入了解
-##1、受控组件
+# React深入了解
+## 1、受控组件
 
 用户在表单填入内容时，即用户与组件互动时，该如何获取用户输入的信息？
 
@@ -13,7 +13,7 @@ render() {
 }
 ``
 
-####表单
+#### 表单
 
     class NameForm extends React.Component {
       constructor(props) {
@@ -54,10 +54,10 @@ render() {
 
 代码分析：通过onchange事件(当离开输入框后，事件回调函数将被触发)和设置value属性来获取用户输入信息。
 
-####多个输入的解决方法
+#### 多个输入的解决方法
 处理多个受控的input元素时，可以通过给每个元素添加一个name属性，声明一个函数来处理，函数内部根据 event.target.name的值来选择做什么。
 
-##2、非受控组件
+## 2、非受控组件
 >非受控组件即组件的状态改变不受React控制
 
 ``
@@ -90,7 +90,7 @@ render() {
 
 代码分析：非受控组件将真实数据保存在 DOM 中，所以可以通过ref获取真实的DOM节点。
 
-####设置默认值
+#### 设置默认值
 >使用defaultValue 
 
     render() {
@@ -109,8 +109,8 @@ render() {
     }
     
     
-##3、map()
-####forEach()和map()比较
+## 3、map()
+#### forEach()和map()比较
 >相同点
 * 都是数组遍历
 * 支持2个参数：一个是回调函数（item,index,list）和上下文
@@ -121,7 +121,7 @@ render() {
 * forEach没有返回值
 * map有返回值
 
-####渲染多个组件
+#### 渲染多个组件
     
     function NumberList(props) {
       const numbers = props.numbers;
