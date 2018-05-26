@@ -127,19 +127,19 @@ export default combineReducers({
 尽可能地把 state 范式化，不要嵌套。把state想像成数据库，所有数据放到一个对象里，每个数据以ID为主键，不同实体或列表间通过ID相互引用数据。
 
 
-#### store
+#### Store
 
 store是保存数据的地方，可以把它看成一个容器；store是用来维持应用所有的 state 树 的一个对象。 改变 store 内state的惟一途径是对它 dispatch 一个 action。
 
 > store的创建 {createStore()}
-
-createStore() 的第二个参数是可选的, 用于设置 state 初始状态.
 
 ```
 import { createStore } from 'redux'
 import reducers from './reducers'
 let store = createStore(reducers)
 ```
+
+createStore() 的第二个参数是可选的, 用于设置 state 初始状态.
 
 > store的三个方法
 
@@ -179,10 +179,10 @@ dispatch 分发 action。这是触发 state 变化的惟一途径.
       }
     }
     
-    //store creater
+    //store creator
     let store = createStore(todos, [ 'Use Redux' ])
     
-    // action creater
+    // action creator
     function addTodo(text) {
       return {
         type: 'ADD_TODO',
@@ -212,7 +212,7 @@ unsubscribe();
 ```
 
 
-####工作流程：
+#### 工作流程：
 
 * 首先，用户发出 Action。(store.dispatch(action);)
 
