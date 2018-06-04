@@ -7,11 +7,11 @@
 
 >每个状态的改变都有一个与之相关的处理函数
 
-``
+```
 render() {
   return <input type="text" value="Hello!" />;
 }
-``
+```
 
 #### 表单
 
@@ -60,11 +60,11 @@ render() {
 ## 2、非受控组件
 >非受控组件即组件的状态改变不受React控制
 
-``
+```
 render() {
   return <input type="text" />;
 }
-``
+```
 
     class NameForm extends React.Component {
       constructor(props) {

@@ -45,17 +45,17 @@ JSX的语法：HTML 语言直接写在 JavaScript 语言之中，不加任何引
 #### 首字母大写
 >当元素类型以小写字母开头时，它表示一个内置的组件，如div或span
 
-``
+```
 let myDiv = <div className="foo" />;
 ReactDOM.render(myDiv, document.getElementById('example'));
-``
+```
 
 >渲染 React 组件，需要创建一个大写字母开头的变量
 
-``
+```
 class MyComponent extends React.Component{...};
 ReactDOM.render(MyComponent, document.getElementById('example'));
-``
+```
 
 #### 属性
 在 JSX 中有几种不同的方式来指定属性。
@@ -63,9 +63,9 @@ ReactDOM.render(MyComponent, document.getElementById('example'));
 
 可以传递任何 {} 包裹的 JavaScript 表达式作为一个属性值
 
-``
+```
 <MyComponent foo={1 + 2 + 3 + 4} />
-``
+```
 
 注意：JSX 中不能使用 if else 语句，但可以使用三元运算 表达式来替代
 
@@ -73,10 +73,10 @@ ReactDOM.render(MyComponent, document.getElementById('example'));
 
 可以将字符串常量作为属性值传递。
 
-``
+```
 <MyComponent message="hello world" />
 <MyComponent message={'hello world'} />
-``
+```
 
 >扩展属性
 
@@ -98,9 +98,9 @@ props.children：在包含开始和结束标签的 JSX 表达式中，标记之�
 
 >字符串常量
 
-``
+```
 <MyComponent>Hello world!</MyComponent>
-``
+```
 
 代码分析：MyComponent 的 props.children 值将会直接是 "hello world!"
 
@@ -108,21 +108,22 @@ props.children：在包含开始和结束标签的 JSX 表达式中，标记之�
 
 可以通过子代嵌入更多的 JSX 元素。
 
-``
+```
 <MyContainer>
   <MyFirstComponent />
   <MySecondComponent />
 </MyContainer>
-``
+```
 
 >JavaScript 表达式
 
 可以将任何 {} 包裹的 JavaScript 表达式作为子代传递
 
-``
+```
 <MyComponent>foo</MyComponent>
+
 <MyComponent>{'foo'}</MyComponent>
-``
+```
 
 >函数
 
@@ -146,6 +147,56 @@ props.children 可以像其它属性一样传递任何数据,当使用自定义�
 >布尔值、Null 和 Undefined 被忽略
 
 false、null、undefined 和 true 都是有效的子代，但它们不会直接被渲染
+
+完整代码示例：
+
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+
+    //父组件实例化后传入子代，然后通过this.props.children渲染子代
+    class Home extends React.Component{
+        constructor(props){
+            super(props);
+        }
+        render(){
+            return (
+                <div>
+                    {this.props.children}
+                </div>
+            )
+        }
+    }
+
+    class Aaa extends React.Component{
+        render(){
+            return (
+                <div>
+                    Aaa
+                </div>
+            )
+        }
+    }
+
+    class Bbb extends React.Component{
+        render(){
+            return (
+                <div>
+                    Bbb
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <div>
+            <Home>
+                Hello world!
+                {'Hello world!'}
+                <Aaa/>
+                <Bbb/>
+            </Home>
+        </div>,
+        document.getElementById('root')
+    );
 
 
 JSX 允许在模板中插入数组，数组会自动展开所有成员
