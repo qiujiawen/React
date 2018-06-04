@@ -30,4 +30,6 @@
 
 >[git的安装和环境搭建](./md/技术分享/git的安装和环境搭建.md)
 
->[git的学习](md/技术分享/git的学习.md)
+>[git的学习](./md/技术分享/git的学习.md)
+
+>[Axios](./md/技术分享/Axios.md)
