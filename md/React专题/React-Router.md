@@ -531,13 +531,84 @@ Redirect组件的必须属性是to属性，表示重定向的新地址。
     );
 
     
+#### withRouter组件
 
+withRouter可以包装任何自定义组件，将react-router 的 history,location,match 三个对象传入。 无需一级级传递react-router的属性，当需要用的router 属性的时候，将组件包一层withRouter，就可以拿到需要的路由信息。
 
+正常情况下，只有Route 的component组件能够自动带有三个属性，因此下文appComponent文件正常情况下是不能获取route的属性，需要withRouter组件包装
 
+代码完整示例：
 
+index.js文件
 
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+    import App from './App';
 
+    class Aaa extends React.Component{
+        render(){
+            return (
+                <div>
+                    Aaa
+                </div>
+            )
+        }
+    }
 
+    ReactDOM.render(
+        <Router>
+            <div>
+                <div>
+                    <Link to = '/app'>跳转home页面</Link><br/>
+                    <Link to = '/aaa'>跳转a页面</Link><br/>
+                </div>
+                <Route path = '/app' component = {App}/>
+                <Route path = '/aaa' component = {Aaa}/>
+            </div>
+        </Router>,
+        document.getElementById('root')
+    );
+
+App.js文件
+
+    import React, { Component } from 'react';
+    import Index from './appComponent';
+
+    class App extends Component {
+        constructor(props){
+            super(props)
+        }
+        render(){
+            return (
+                <div>
+                    home
+                    <Index/>
+                </div>
+            )
+        }
+    }
+
+    export default App;
+
+appComponent.js文件
+
+    import React, { Component } from 'react';
+    import { withRouter } from 'react-router-dom'
+    class Index extends Component{
+        render(){
+            return <div>
+                I'm App children
+            </div>
+        }
+    }
+    export default withRouter(
+        (props) =>{
+        //这里可以获取 history,location,match
+            console.log(props);
+            return <Index/>
+        }
+    );
 
 
 
