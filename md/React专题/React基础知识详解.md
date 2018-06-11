@@ -12,6 +12,7 @@ Liunx和Mac电脑下：
 ```
 sudo npm install -g create-react-app
 ```
+
 创建React目录
 ```
 create-react-app my-app
@@ -21,6 +22,25 @@ create-react-app my-app
 cd my-app
 npm start
 ```
+
+Mac终端命令下创建：
+
+```
+sudo npm install -g create-react-app
+create-react-app my-app
+open -a WebStorm my-app
+
+//Mac命令行指定特定webstorm程序打开文件
+//#参数说明：－a指定应用
+open -a TextEdit settings.xml
+
+//#参数说明：－e使用文本编辑器打开
+open -e settings.xml
+
+//#参数说明：－t使用默认编辑器打开
+open -t settings.xml
+```
+
 ## 2、JSX 语法
 JSX的语法：HTML 语言直接写在 JavaScript 语言之中，不加任何引号，它允许 HTML 与 JavaScript 的混写。
 
