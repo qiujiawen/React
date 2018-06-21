@@ -50,6 +50,54 @@ cat id_rsa.pub
 
 登陆GitHub，打开“Account settings”，“SSH Keys”页面；然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。点“Add Key”，就应该看到已经添加的Key。
 
+>git的过滤规则
+
+在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+
+.gitignore文件完整代码示例：
+
+    # Numerous always-ignore extensions
+    *.bak
+    *.patch
+    *.diff
+    *.err
+
+    # temp file for git conflict merging
+    *.orig
+    *.log
+    *.rej
+    *.swo
+    *.swp
+    *.zip
+    *.vi
+    *~
+    *.sass-cache
+    *.tmp.html
+    *.dump
+
+    # OS or Editor folders
+    .DS_Store
+    ._*
+    .cache
+    .project
+    .settings
+    .tmproj
+    *.esproj
+    *.sublime-project
+    *.sublime-workspace
+    nbproject
+    thumbs.db
+    *.iml
+
+    # Folders to ignore
+    .hg
+    .svn
+    .CVS
+    .idea
+    node_modules/
+    jscoverage_lib/
+    bower_components/
+    dist/
 
 
 
