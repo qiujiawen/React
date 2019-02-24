@@ -129,3 +129,11 @@ Git 是一个管理你的「代码的历史记录」的工具
     git tag                         //列出现有标签
     git tag v1.0.0                  //新建标签  
 
+### 删除远程仓库的.idea文件
+
+```
+git status                                       //查看当前状态，确认是否已经删除了iml文件
+git rm -r --cached .idea                         //--cached不会把本地的.idea删除
+git commit -m 'delete .idea dir'
+git push -u origin master
+```
