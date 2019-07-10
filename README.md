@@ -2,7 +2,7 @@
 
 ## 工作环境
 
->[工作环境的搭建](./md/React专题/工作环境的搭建.md)
+>[node的安装](md/React专题/node.md)
 
 ## Webpack
 

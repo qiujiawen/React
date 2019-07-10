@@ -17,7 +17,7 @@ npm install antd --save
 >安装react-app-rewired
 
 ```
-npm i react-app-rewired --dev
+npm i react-app-rewired customize-cra
 ```
 
 >package.json 文件中修改参数
@@ -38,7 +38,7 @@ npm i react-app-rewired --dev
 babel-plugin-import 是一个用于按需加载组件代码和样式的 babel 插件
 
 ```
-npm i babel-plugin-import --dev
+npm i babel-plugin-import
 ```
 
 
